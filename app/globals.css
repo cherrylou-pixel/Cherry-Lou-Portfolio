@@ -136,7 +136,10 @@ main {
 
 .nav-links {
   display: flex;
-  gap: 34px;
+  align-items: center;
+  gap: 38px;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .nav-links a {

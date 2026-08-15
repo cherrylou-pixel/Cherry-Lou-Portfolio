@@ -193,8 +193,7 @@ export default function Home() {
           <div className="about-text">
   <p className="large-text">
     I&apos;m Cherry Lou — a creative and detail-oriented professional
-    with an interest in web development, graphic design, digital
-    marketing, and virtual assistance.
+    with an interest in web development, graphic design, and virtual assistance.
   </p>
 
   <p>
@@ -296,18 +295,7 @@ export default function Home() {
             <span className="service-arrow">↗</span>
           </article>
 
-          <article className="service-card reveal">
-            <span className="service-number">04</span>
-            <div>
-              <p className="service-label">GROWTH</p>
-              <h3>Digital Marketing</h3>
-              <p>
-                Supporting lead generation, prospect research, content
-                creation, and social media initiatives.
-              </p>
-            </div>
-            <span className="service-arrow">↗</span>
-          </article>
+         
         </div>
       </section>
 

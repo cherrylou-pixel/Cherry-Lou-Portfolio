@@ -460,14 +460,14 @@ main {
 }
 
 .about-text p {
-  color: var(--muted);
+  color: #c4c4bf;
   font-size: 15px;
   line-height: 1.85;
   margin: 0 0 25px;
 }
 
 .about-text .large-text {
-  color: var(--white);
+  color: #e8e8e3;
   font: 500 22px/1.55 "Space Grotesk";
 }
 

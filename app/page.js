@@ -190,26 +190,50 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="about-text reveal">
-            <p className="large-text">
-              I&apos;m Cherry Lou — a creative and detail-oriented professional
-              with an interest in web development, graphic design, digital
-              marketing, and virtual assistance.
-            </p>
+          <div className="about-text">
+  <p className="large-text">
+    I&apos;m Cherry Lou — a creative and detail-oriented professional
+    with an interest in web development, graphic design, digital
+    marketing, and virtual assistance.
+  </p>
 
-            <p>
-              I enjoy working where creativity and organization meet. Whether
-              it&apos;s creating visual content, building a website, researching
-              prospects, organizing information, or supporting a digital
-              workflow, I focus on producing work that is both visually
-              engaging and useful.
-            </p>
+  <p>
+    I&apos;m a multidisciplinary creative with a background that combines
+    graphic design, multimedia arts, office administration, and digital
+    development. In 2025, I graduated from two degree programs
+    simultaneously: Bachelor of Multimedia Arts – Graphic Design
+    Specialization at CIIT College of Arts and Technology and Bachelor
+    of Science in Office Administration at Pangasinan State University.
+  </p>
 
-            <p>
-              I&apos;m always learning, experimenting, and looking for better
-              ways to turn ideas into meaningful digital experiences.
-            </p>
-          </div>
+  <p>
+    My journey began as an academic commissioner, where I took on a
+    wide range of roles—from research writer and analyst to teacher,
+    math tutor, and physics tutor. This experience taught me how to
+    communicate ideas clearly, solve problems creatively, and adapt to
+    different challenges.
+  </p>
+
+  <p>
+    In 2023, I expanded my experience into the gaming industry, working
+    as a web developer for one gaming company and a graphic designer
+    for another until 2025. These experiences allowed me to combine my
+    technical skills with my passion for visual storytelling and
+    design.
+  </p>
+
+  <p>
+    I enjoy working where creativity and organization meet. Whether
+    it&apos;s creating visual content, building a website, researching
+    prospects, organizing information, or supporting a digital workflow,
+    I focus on producing work that is both visually engaging and useful.
+  </p>
+
+  <p>
+    I&apos;m always learning, experimenting, and looking for better ways
+    to turn ideas into meaningful digital experiences.
+  </p>
+</div>
         </div>
       </section>
 

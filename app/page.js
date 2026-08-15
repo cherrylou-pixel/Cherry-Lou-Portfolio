@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect } from "react";
+
 const skills = [
   "Web Development",
   "Graphic Design",
@@ -6,186 +10,465 @@ const skills = [
   "Lead Generation",
   "Prospect Research",
   "Content Creation",
-  "Social Media",
+  "Social Media Management",
   "Canva",
   "ChatGPT",
   "Google Workspace",
+  "Research & Organization",
+];
+
+const tools = [
+  "Canva",
+  "ChatGPT",
+  "Google Workspace",
+  "Microsoft Office",
+  "Social Media",
+  "HTML / CSS",
+  "JavaScript",
 ];
 
 const projects = [
   {
     number: "01",
     title: "Project One",
-    category: "Web / Creative",
-    description: "Replace this with a short description of your project, your role, and the result.",
+    category: "WEB DEVELOPMENT",
+    description:
+      "Replace this with your project description. Explain what you created, your role, and the result.",
+    tags: ["Website", "Design", "Development"],
   },
   {
     number: "02",
     title: "Project Two",
-    category: "Design / Marketing",
-    description: "Add another project here. You can duplicate this card as many times as you need.",
+    category: "GRAPHIC DESIGN",
+    description:
+      "Showcase a graphic design project, social media content, branding project, or creative work here.",
+    tags: ["Canva", "Design", "Creative"],
   },
   {
     number: "03",
     title: "Project Three",
-    category: "Virtual Assistance",
-    description: "Showcase a school project, freelance work, personal project, or professional sample.",
+    category: "DIGITAL MARKETING",
+    description:
+      "Add a marketing, lead generation, content creation, or research project here.",
+    tags: ["Marketing", "Research", "Content"],
   },
 ];
 
 const experience = [
   {
-    year: "20XX — Present",
-    role: "Your Position",
+    date: "20XX — PRESENT",
+    role: "Your Current Position",
     company: "Company / Organization",
-    description: "Add your work experience, responsibilities, achievements, or academic experience here.",
+    description:
+      "Replace this with your responsibilities, achievements, and experience.",
   },
   {
-    year: "20XX — 20XX",
-    role: "Your Previous Role",
-    company: "Company / School",
-    description: "Replace this placeholder with another experience entry.",
+    date: "20XX — 20XX",
+    role: "Previous Position",
+    company: "Company / Organization",
+    description:
+      "Add another professional, freelance, internship, or academic experience here.",
   },
 ];
 
 export default function Home() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    const elements = document.querySelectorAll(".reveal");
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main>
-      <div className="noise" />
+      <div className="cursor-glow" />
 
-      <nav className="nav">
-        <a href="#home" className="logo">CL<span>.</span></a>
-        <div className="nav-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#work">Work</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <a className="nav-button" href="#contact">Let's talk <span>↗</span></a>
-      </nav>
+      {/* NAVIGATION */}
+      <header className="nav-wrap">
+        <nav className="nav">
+          <a href="#home" className="brand">
+            CHERRY<span>LOU</span>
+          </a>
 
+          <div className="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#work">Work</a>
+            <a href="#experience">Experience</a>
+          </div>
+
+          <a href="#contact" className="nav-cta">
+            Let&apos;s talk <span>↗</span>
+          </a>
+        </nav>
+      </header>
+
+      {/* HERO */}
       <section id="home" className="hero section">
-        <div className="hero-glow" />
-        <div className="hero-content">
-          <p className="eyebrow"><span className="dot" /> Available for opportunities</p>
-          <h1>Cherry <em>Lou</em></h1>
-          <p className="hero-title">Web Developer / Graphic Designer <span>|</span> General Virtual Assistant</p>
-          <p className="hero-copy">
-            I create thoughtful digital experiences, compelling visuals, and organized
-            solutions that help ideas turn into meaningful results.
+        <div className="hero-grid" />
+
+        <div className="hero-content reveal">
+          <div className="availability">
+            <span className="status-dot" />
+            AVAILABLE FOR OPPORTUNITIES
+          </div>
+
+          <p className="hero-small">HELLO, I&apos;M</p>
+
+          <h1>
+            Cherry
+            <br />
+            <span>Lou.</span>
+          </h1>
+
+          <div className="hero-role">
+            <span>Web Developer</span>
+            <i>/</i>
+            <span>Graphic Designer</span>
+            <i>/</i>
+            <span>Virtual Assistant</span>
+          </div>
+
+          <p className="hero-description">
+            I create clean digital experiences, thoughtful visuals, and
+            organized solutions that help people and businesses turn ideas
+            into something real.
           </p>
-          <div className="hero-actions">
-            <a href="#work" className="primary-button">View my work <span>↓</span></a>
-            <a href="#contact" className="text-button">Get in touch <span>↗</span></a>
+
+          <div className="hero-buttons">
+            <a href="#work" className="button button-primary">
+              Explore my work <span>↓</span>
+            </a>
+
+            <a href="/resume.pdf" className="button button-outline">
+              Download Resume <span>↗</span>
+            </a>
           </div>
         </div>
-        <div className="scroll-note">SCROLL TO EXPLORE <span>↓</span></div>
+
+        <div className="hero-side">
+          <div className="hero-orbit orbit-one" />
+          <div className="hero-orbit orbit-two" />
+          <div className="hero-circle">
+            <span>CREATIVE</span>
+            <strong>CL</strong>
+            <span>DIGITAL</span>
+          </div>
+        </div>
+
+        <div className="hero-bottom">
+          <span>BASED IN THE PHILIPPINES</span>
+          <span>SCROLL TO EXPLORE ↓</span>
+        </div>
       </section>
 
-      <section id="about" className="section about">
-        <div className="section-label">01 / ABOUT</div>
+      {/* ABOUT */}
+      <section id="about" className="section about-section">
+        <div className="section-top reveal">
+          <span className="section-number">01</span>
+          <span className="section-name">ABOUT ME</span>
+        </div>
+
         <div className="about-grid">
-          <div>
-            <h2>Creative thinking.<br /><em>Practical execution.</em></h2>
+          <div className="about-heading reveal">
+            <p className="mini-label">A LITTLE ABOUT ME</p>
+            <h2>
+              Creative mind,
+              <br />
+              <em>organized execution.</em>
+            </h2>
           </div>
-          <div className="about-copy">
-            <p>
-              I’m Cherry Lou, a creative and detail-oriented professional interested in
-              web development, graphic design, digital marketing, and virtual assistance.
+
+          <div className="about-text reveal">
+            <p className="large-text">
+              I&apos;m Cherry Lou — a creative and detail-oriented professional
+              with an interest in web development, graphic design, digital
+              marketing, and virtual assistance.
             </p>
+
             <p>
-              I enjoy combining creativity with organization — from designing engaging
-              visuals and content to researching prospects, managing information, and
-              building useful digital experiences.
+              I enjoy working where creativity and organization meet. Whether
+              it&apos;s creating visual content, building a website, researching
+              prospects, organizing information, or supporting a digital
+              workflow, I focus on producing work that is both visually
+              engaging and useful.
             </p>
+
             <p>
-              My goal is simple: create work that looks good, works well, and makes a
-              real difference.
+              I&apos;m always learning, experimenting, and looking for better
+              ways to turn ideas into meaningful digital experiences.
             </p>
           </div>
         </div>
       </section>
 
-      <section id="skills" className="section skills-section">
-        <div className="section-label">02 / SKILLS</div>
-        <div className="skills-head">
-          <h2>What I <em>do.</em></h2>
-          <p>Replace the skills below with your own. The cards are intentionally easy to edit.</p>
+      {/* SERVICES */}
+      <section id="services" className="section services-section">
+        <div className="section-top reveal">
+          <span className="section-number">02</span>
+          <span className="section-name">WHAT I DO</span>
         </div>
-        <div className="skills-grid">
-          {skills.map((skill, i) => (
-            <div className="skill-card" key={skill}>
-              <span>{String(i + 1).padStart(2, "0")}</span>
+
+        <div className="services-heading reveal">
+          <h2>
+            Skills that
+            <br />
+            <em>make ideas happen.</em>
+          </h2>
+          <p>
+            A combination of creative, technical, and organizational skills
+            that I can bring into different projects.
+          </p>
+        </div>
+
+        <div className="service-list">
+          <article className="service-card reveal">
+            <span className="service-number">01</span>
+            <div>
+              <p className="service-label">DIGITAL</p>
+              <h3>Web Development</h3>
+              <p>
+                Building clean, responsive, and user-friendly digital
+                experiences.
+              </p>
+            </div>
+            <span className="service-arrow">↗</span>
+          </article>
+
+          <article className="service-card reveal">
+            <span className="service-number">02</span>
+            <div>
+              <p className="service-label">CREATIVE</p>
+              <h3>Graphic Design</h3>
+              <p>
+                Creating aesthetic visuals, layouts, graphics, and content
+                designed to communicate clearly.
+              </p>
+            </div>
+            <span className="service-arrow">↗</span>
+          </article>
+
+          <article className="service-card reveal">
+            <span className="service-number">03</span>
+            <div>
+              <p className="service-label">SUPPORT</p>
+              <h3>Virtual Assistance</h3>
+              <p>
+                Helping organize tasks, information, research, and digital
+                workflows efficiently.
+              </p>
+            </div>
+            <span className="service-arrow">↗</span>
+          </article>
+
+          <article className="service-card reveal">
+            <span className="service-number">04</span>
+            <div>
+              <p className="service-label">GROWTH</p>
+              <h3>Digital Marketing</h3>
+              <p>
+                Supporting lead generation, prospect research, content
+                creation, and social media initiatives.
+              </p>
+            </div>
+            <span className="service-arrow">↗</span>
+          </article>
+        </div>
+      </section>
+
+      {/* SKILLS */}
+      <section className="section skills-section">
+        <div className="skills-intro reveal">
+          <div>
+            <p className="mini-label">SKILLS & EXPERTISE</p>
+            <h2>
+              What I
+              <br />
+              <em>bring to the table.</em>
+            </h2>
+          </div>
+
+          <p>
+            Replace these skills with your own. You can easily edit the
+            <strong> skills</strong> array in this file later.
+          </p>
+        </div>
+
+        <div className="skills-list">
+          {skills.map((skill, index) => (
+            <div className="skill-item reveal" key={skill}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
               <h3>{skill}</h3>
-              <b>↗</b>
+              <span className="skill-icon">↗</span>
             </div>
           ))}
         </div>
+
+        <div className="tools">
+          <p className="mini-label">TOOLS I USE</p>
+
+          <div className="tool-list">
+            {tools.map((tool) => (
+              <span key={tool}>{tool}</span>
+            ))}
+          </div>
+        </div>
       </section>
 
+      {/* WORK */}
       <section id="work" className="section work-section">
-        <div className="section-label">03 / SELECTED WORK</div>
-        <div className="work-head">
-          <h2>Things I’ve <em>created.</em></h2>
-          <p>Replace these placeholder projects with your own work, screenshots, links, and descriptions.</p>
+        <div className="section-top reveal">
+          <span className="section-number">03</span>
+          <span className="section-name">SELECTED WORK</span>
         </div>
-        <div className="projects">
+
+        <div className="work-heading reveal">
+          <h2>
+            Selected
+            <br />
+            <em>projects.</em>
+          </h2>
+
+          <p>
+            A collection of work that represents my creativity, skills, and
+            approach. Replace these placeholders with your actual projects.
+          </p>
+        </div>
+
+        <div className="project-grid">
           {projects.map((project) => (
-            <article className="project" key={project.number}>
-              <div className="project-image">
-                <span>{project.number}</span>
-                <div className="project-placeholder">PROJECT<br />PREVIEW</div>
-                <div className="project-arrow">↗</div>
+            <article
+              className={`project-card reveal ${
+                project.number === "01" ? "project-featured" : ""
+              }`}
+              key={project.number}
+            >
+              <div className="project-preview">
+                <div className="preview-grid" />
+                <span className="project-number">{project.number}</span>
+
+                <div className="preview-title">
+                  <span>CHERRY</span>
+                  <strong>LOU</strong>
+                </div>
+
+                <span className="preview-arrow">↗</span>
               </div>
-              <div className="project-info">
+
+              <div className="project-details">
                 <div>
-                  <p>{project.category}</p>
+                  <p className="project-category">{project.category}</p>
                   <h3>{project.title}</h3>
                 </div>
-                <p className="project-description">{project.description}</p>
+
+                <p className="project-description">
+                  {project.description}
+                </p>
+              </div>
+
+              <div className="project-tags">
+                {project.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="section experience-section">
-        <div className="section-label">04 / EXPERIENCE</div>
-        <h2>A little more<br /><em>about my journey.</em></h2>
-        <div className="timeline">
-          {experience.map((item) => (
-            <div className="timeline-item" key={`${item.year}-${item.role}`}>
-              <div className="timeline-year">{item.year}</div>
-              <div>
+      {/* EXPERIENCE */}
+      <section id="experience" className="section experience-section">
+        <div className="section-top reveal">
+          <span className="section-number">04</span>
+          <span className="section-name">EXPERIENCE</span>
+        </div>
+
+        <div className="experience-heading reveal">
+          <h2>
+            My
+            <br />
+            <em>journey.</em>
+          </h2>
+        </div>
+
+        <div className="experience-list">
+          {experience.map((item, index) => (
+            <article className="experience-item reveal" key={index}>
+              <div className="experience-date">{item.date}</div>
+
+              <div className="experience-main">
                 <h3>{item.role}</h3>
-                <p className="company">{item.company}</p>
+                <p className="experience-company">{item.company}</p>
                 <p>{item.description}</p>
               </div>
-            </div>
+
+              <span className="experience-arrow">↗</span>
+            </article>
           ))}
         </div>
       </section>
 
-      <section id="contact" className="contact section">
-        <div className="contact-orb" />
-        <div className="section-label">05 / CONTACT</div>
-        <div className="contact-content">
-          <p className="eyebrow">Have a project in mind?</p>
-          <h2>Let’s make something<br /><em>worth remembering.</em></h2>
-          <p className="contact-copy">Replace the email and social links below with your own details.</p>
-          <a className="email-link" href="mailto:your@email.com">your@email.com <span>↗</span></a>
-          <div className="socials">
-            <a href="#" aria-label="LinkedIn">LinkedIn ↗</a>
-            <a href="#" aria-label="Facebook">Facebook ↗</a>
-            <a href="#" aria-label="Instagram">Instagram ↗</a>
-            <a href="/resume.pdf" aria-label="Resume">Resume ↗</a>
+      {/* CONTACT */}
+      <section id="contact" className="contact-section">
+        <div className="contact-background">
+          <div className="contact-ring ring-one" />
+          <div className="contact-ring ring-two" />
+          <div className="contact-ring ring-three" />
+        </div>
+
+        <div className="section contact-inner">
+          <p className="mini-label reveal">05 / LET&apos;S CONNECT</p>
+
+          <h2 className="reveal">
+            Let&apos;s create
+            <br />
+            something <em>great.</em>
+          </h2>
+
+          <p className="contact-description reveal">
+            Have a project, opportunity, or idea in mind? I&apos;d love to hear
+            about it.
+          </p>
+
+          <a
+            href="mailto:your@email.com"
+            className="contact-email reveal"
+          >
+            your@email.com <span>↗</span>
+          </a>
+
+          <div className="social-links reveal">
+            <a href="#" target="_blank" rel="noreferrer">
+              LinkedIn ↗
+            </a>
+            <a href="#" target="_blank" rel="noreferrer">
+              Facebook ↗
+            </a>
+            <a href="#" target="_blank" rel="noreferrer">
+              Instagram ↗
+            </a>
+            <a href="/resume.pdf">
+              Resume ↗
+            </a>
           </div>
         </div>
       </section>
 
-      <footer>
+      {/* FOOTER */}
+      <footer className="footer">
         <span>© 2026 CHERRY LOU</span>
-        <span>BUILT WITH NEXT.JS · READY FOR VERCEL</span>
+        <span>WEB · DESIGN · DIGITAL</span>
         <a href="#home">BACK TO TOP ↑</a>
       </footer>
     </main>

@@ -102,15 +102,11 @@ export default function Home() {
           </a>
 
           <div className="nav-links">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#work">Work</a>
-            <a href="#experience">Experience</a>
-          </div>
-
-          <a href="#contact" className="nav-cta">
-            Let&apos;s talk <span>↗</span>
-          </a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#work">Work</a>
+  <a href="#experience">Experience</a>
+</div>
         </nav>
       </header>
 
@@ -147,14 +143,18 @@ export default function Home() {
           </p>
 
           <div className="hero-buttons">
-            <a href="#work" className="button button-primary">
-              Explore my work <span>↓</span>
-            </a>
+  <a href="#work" className="button button-primary">
+    Explore my work <span>↓</span>
+  </a>
 
-            <a href="/resume.pdf" className="button button-outline">
-              Download Resume <span>↗</span>
-            </a>
-          </div>
+  <a href="/resume.pdf" className="button button-outline">
+    Download Resume <span>↗</span>
+  </a>
+
+  <a href="#contact" className="button button-outline">
+    Let's Talk <span>↗</span>
+  </a>
+</div>
         </div>
 
         <div className="hero-side">

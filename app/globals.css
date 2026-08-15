@@ -140,8 +140,9 @@ main {
 }
 
 .nav-links a {
-  color: #898985;
-  font-size: 11px;
+  color: #b0b0aa;
+  font-size: 14px;
+  font-weight: 500;
   transition: color 0.25s;
 }
 
@@ -152,9 +153,17 @@ main {
 .nav-cta {
   border: 1px solid #3a3a3a;
   border-radius: 100px;
-  padding: 11px 17px;
-  font-size: 10px;
-  transition: 0.25s;
+  padding: 13px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  transition:
+    0.25s,
+    transform 0.25s;
+}
+
+.nav-cta:hover {
+  border-color: var(--lime);
+  transform: translateY(-2px);
 }
 
 .nav-cta span {

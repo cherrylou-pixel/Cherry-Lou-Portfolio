@@ -62,29 +62,29 @@ main {
 }
 
 .mini-label {
-  color: #666662;
-  font-size: 10px;
-  font-weight: 600;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
   letter-spacing: 2.5px;
   margin: 0;
 }
-
 .section-top {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 22px;
   padding-top: 110px;
   border-top: 1px solid var(--line);
 }
 
 .section-number {
   color: var(--lime);
-  font: 600 11px "Space Grotesk";
+  font: 600 13px "Space Grotesk";
 }
 
 .section-name {
-  color: #777772;
-  font-size: 10px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
   letter-spacing: 2.5px;
 }
 

@@ -452,7 +452,10 @@ export default function Home() {
         </div>
 
         <div className="section contact-inner">
-          <p className="mini-label reveal">05 / LET&apos;S CONNECT</p>
+         <p className="mini-label reveal">
+  <span className="contact-number">05</span>
+  <span className="contact-label"> / LET&apos;S CONNECT</span>
+</p>
 
           <h2 className="reveal">
             Let&apos;s create

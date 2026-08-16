@@ -1,53 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
-const serviceProjects = {
-  "Web Development": [
-    {
-      title: "Website Project One",
-      description:
-        "Replace this with a description of your web development project.",
-      tags: ["Web Development", "UI/UX"],
-    },
-    {
-      title: "Website Project Two",
-      description:
-        "Replace this with another web development project and its details.",
-      tags: ["Website", "Development"],
-    },
-  ],
-
-  "Graphic Design": [
-    {
-      title: "Graphic Design Project One",
-      description:
-        "Replace this with a description of your graphic design project.",
-      tags: ["Graphic Design", "Visual Design"],
-    },
-    {
-      title: "Graphic Design Project Two",
-      description:
-        "Add another graphic design project here.",
-      tags: ["Branding", "Creative"],
-    },
-  ],
-
-  "Virtual Assistance": [
-    {
-      title: "Virtual Assistance Project One",
-      description:
-        "Replace this with a description of your virtual assistance work.",
-      tags: ["Research", "Organization"],
-    },
-    {
-      title: "Virtual Assistance Project Two",
-      description:
-        "Add another virtual assistance project here.",
-      tags: ["Administration", "Support"],
-    },
-  ],
-};
+import { useEffect } from "react";
 
 const skills = [
   "Web Development",
@@ -104,27 +57,25 @@ const experiences = [
     role: "Web Developer",
     company: "Gaming Company",
     description:
-      "Replace this with your actual work experience and responsibilities.",
+      "Worked on website development and digital projects, helping create functional and user-friendly web experiences.",
   },
   {
     year: "2023 — 2025",
     role: "Graphic Designer",
     company: "Gaming Company",
     description:
-      "Replace this with your actual graphic design responsibilities.",
+      "Created visual content, graphics, layouts, and digital materials while maintaining visual consistency and creative direction.",
   },
   {
     year: "Earlier Experience",
     role: "Academic Commissioner",
     company: "Academic / Freelance",
     description:
-      "Research writer, analyst, teacher, math tutor, and physics tutor.",
+      "Worked as a research writer, analyst, teacher, math tutor, and physics tutor while handling different academic and organizational responsibilities.",
   },
 ];
 
 export default function Home() {
-  const [activeService, setActiveService] = useState(null);
-
   useEffect(() => {
     const revealElements = document.querySelectorAll(".reveal");
 
@@ -141,23 +92,11 @@ export default function Home() {
       }
     );
 
-    revealElements.forEach((element) => observer.observe(element));
+    revealElements.forEach((element) => {
+      observer.observe(element);
+    });
 
     return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        setActiveService(null);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
   }, []);
 
   return (
@@ -305,85 +244,73 @@ export default function Home() {
           </div>
 
           <div className="services-list">
-            <article
-              className="service-card reveal"
-              onClick={() => setActiveService("Web Development")}
-            >
+            {/* WEB DEVELOPMENT */}
+            <article className="service-card reveal">
               <span className="service-number">01</span>
 
               <div>
                 <p className="service-label">DIGITAL</p>
+
                 <h3>Web Development</h3>
+
                 <p>
                   Building clean, responsive, and user-friendly digital
                   experiences.
                 </p>
               </div>
 
-              <button
+              <span
                 className="service-arrow"
                 aria-label="View Web Development work"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  setActiveService("Web Development");
-                }}
               >
                 ↗
-              </button>
+              </span>
             </article>
 
-            <article
-              className="service-card reveal"
-              onClick={() => setActiveService("Graphic Design")}
-            >
+            {/* GRAPHIC DESIGN */}
+            <article className="service-card reveal">
               <span className="service-number">02</span>
 
               <div>
                 <p className="service-label">CREATIVE</p>
+
                 <h3>Graphic Design</h3>
+
                 <p>
                   Creating aesthetic visuals, layouts, graphics, and content
                   designed to communicate clearly.
                 </p>
               </div>
 
-              <button
+              <span
                 className="service-arrow"
                 aria-label="View Graphic Design work"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  setActiveService("Graphic Design");
-                }}
               >
                 ↗
-              </button>
+              </span>
             </article>
 
-            <article
-              className="service-card reveal"
-              onClick={() => setActiveService("Virtual Assistance")}
-            >
+            {/* VIRTUAL ASSISTANCE */}
+            <article className="service-card reveal">
               <span className="service-number">03</span>
 
               <div>
                 <p className="service-label">SUPPORT</p>
+
                 <h3>Virtual Assistance</h3>
+
                 <p>
                   Helping organize tasks, information, research, and digital
                   workflows efficiently.
                 </p>
               </div>
 
-              <button
+              <span
                 className="service-arrow"
                 aria-label="View Virtual Assistance work"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  setActiveService("Virtual Assistance");
-                }}
               >
                 ↗
-              </button>
+              </span>
             </article>
           </div>
         </div>
@@ -393,7 +320,7 @@ export default function Home() {
       <section className="section" id="skills">
         <div className="section-top">
           <span className="section-number">02A</span>
-          <span className="section-name">SKILLS & EXPERTISE</span>
+          <span className="section-name">SKILLS &amp; EXPERTISE</span>
         </div>
 
         <div className="skills-grid">
@@ -401,7 +328,7 @@ export default function Home() {
             <p className="mini-label">CAPABILITIES</p>
 
             <h2>
-              Skills &
+              Skills &amp;
               <br />
               <em>expertise.</em>
             </h2>
@@ -448,12 +375,21 @@ export default function Home() {
 
         <div className="project-list">
           {projects.map((project) => (
-            <article className="project-card reveal" key={project.number}>
-              <div className="project-number">{project.number}</div>
+            <article
+              className="project-card reveal"
+              key={project.number}
+            >
+              <div className="project-number">
+                {project.number}
+              </div>
 
               <div className="project-content">
-                <p className="project-category">{project.category}</p>
+                <p className="project-category">
+                  {project.category}
+                </p>
+
                 <h3>{project.title}</h3>
+
                 <p>{project.description}</p>
               </div>
 
@@ -475,7 +411,7 @@ export default function Home() {
             <p className="mini-label">MY JOURNEY</p>
 
             <h2>
-              Experience &
+              Experience &amp;
               <br />
               <em>growth.</em>
             </h2>
@@ -483,16 +419,21 @@ export default function Home() {
 
           <div className="experience-list">
             {experiences.map((experience) => (
-              <article className="experience-card reveal" key={experience.role}>
+              <article
+                className="experience-card reveal"
+                key={experience.role}
+              >
                 <span className="experience-year">
                   {experience.year}
                 </span>
 
                 <div>
                   <h3>{experience.role}</h3>
+
                   <p className="experience-company">
                     {experience.company}
                   </p>
+
                   <p>{experience.description}</p>
                 </div>
               </article>
@@ -502,10 +443,16 @@ export default function Home() {
       </section>
 
       {/* CONTACT */}
-      <section className="contact-section section" id="contact">
+      <section
+        className="contact-section section"
+        id="contact"
+      >
         <p className="mini-label reveal">
           <span className="contact-number">05</span>
-          <span className="contact-label"> / LET&apos;S CONNECT</span>
+          <span className="contact-label">
+            {" "}
+            / LET&apos;S CONNECT
+          </span>
         </p>
 
         <div className="contact-content reveal">
@@ -516,11 +463,14 @@ export default function Home() {
           </h2>
 
           <p>
-            Have a project, opportunity, or idea in mind? I&apos;d love to
-            hear about it.
+            Have a project, opportunity, or idea in mind? I&apos;d love
+            to hear about it.
           </p>
 
-          <a href="mailto:your@email.com" className="contact-email">
+          <a
+            href="mailto:your@email.com"
+            className="contact-email"
+          >
             your@email.com ↗
           </a>
         </div>
@@ -532,78 +482,6 @@ export default function Home() {
         <span>WEB · DESIGN · SUPPORT</span>
         <a href="#home">BACK TO TOP ↑</a>
       </footer>
-
-      {/* SERVICE MODAL */}
-      {activeService && (
-        <div
-          className="service-modal-overlay"
-          onClick={() => setActiveService(null)}
-        >
-          <div
-            className="service-modal"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <button
-              className="service-modal-close"
-              onClick={() => setActiveService(null)}
-              aria-label="Close"
-            >
-              ×
-            </button>
-
-            <p className="mini-label">
-              MY WORK / {activeService}
-            </p>
-
-            <h2>
-              {activeService}
-              <br />
-              <em>Selected Work.</em>
-            </h2>
-
-            <div className="service-project-list">
-              {serviceProjects[activeService].map(
-                (project, index) => (
-                  <article
-                    className="service-project"
-                    key={project.title}
-                  >
-                    <div className="service-project-image">
-                      <span>
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-
-                      <strong>
-                        {activeService === "Web Development"
-                          ? "WEB"
-                          : activeService === "Graphic Design"
-                          ? "DESIGN"
-                          : "VA"}
-                      </strong>
-                    </div>
-
-                    <div className="service-project-info">
-                      <p>
-                        {String(index + 1).padStart(2, "0")}
-                      </p>
-
-                      <h3>{project.title}</h3>
-
-                      <span>{project.description}</span>
-
-                      <div className="project-tags">
-                        {project.tags.map((tag) => (
-                          <span key={tag}>{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </article>
-                )
-              )}
-            </div>
-          </div>
-        </div>
-      )}
     </main>
   );
 }

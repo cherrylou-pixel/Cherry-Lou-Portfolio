@@ -1238,3 +1238,332 @@ main {
 .contact-label {
   color: #ffffff;
 }
+/* =========================================
+   SERVICE WORK MODAL
+   ========================================= */
+
+.service-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  animation: modalFadeIn 0.3s ease forwards;
+}
+
+.service-modal {
+  position: relative;
+
+  width: min(1100px, 100%);
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  padding: 55px;
+
+  background: #080808;
+  border: 1px solid var(--lime);
+
+  box-shadow:
+    0 0 20px rgba(216, 255, 62, 0.15),
+    0 0 60px rgba(216, 255, 62, 0.08);
+
+  animation: modalSlideUp 0.4s ease forwards;
+}
+
+/* Close button */
+
+.service-modal-close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+
+  background: #080808;
+  color: #ffffff;
+
+  font-size: 25px;
+  font-weight: 300;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.service-modal-close:hover {
+  background: var(--lime);
+  border-color: var(--lime);
+  color: #050505;
+  transform: rotate(90deg);
+}
+
+/* Modal heading */
+
+.service-modal > .mini-label {
+  color: var(--lime);
+  margin-bottom: 20px;
+}
+
+.service-modal > h2 {
+  margin: 0 0 45px;
+
+  color: #ffffff;
+
+  font: 600 clamp(42px, 6vw, 76px) / 0.95
+    "Space Grotesk";
+
+  letter-spacing: -4px;
+}
+
+.service-modal > h2 em {
+  color: var(--lime);
+  font-style: normal;
+}
+
+/* Project list */
+
+.service-project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Individual project */
+
+.service-project {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 30px;
+
+  padding: 20px;
+
+  border: 1px solid #292929;
+
+  background: #0d0d0d;
+
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.service-project:hover {
+  border-color: var(--lime);
+  background: #101010;
+  transform: translateY(-4px);
+}
+
+/* Project visual placeholder */
+
+.service-project-image {
+  min-height: 190px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  background: #050505;
+  border: 1px solid #252525;
+
+  overflow: hidden;
+}
+
+.service-project-image::before {
+  content: "";
+
+  position: absolute;
+  inset: 20px;
+
+  border: 1px solid rgba(216, 255, 62, 0.25);
+}
+
+.service-project-image span {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+
+  color: var(--lime);
+
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.service-project-image strong {
+  position: relative;
+
+  color: #ffffff;
+
+  font: 600 32px "Space Grotesk";
+  letter-spacing: -1px;
+}
+
+/* Project information */
+
+.service-project-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.service-project-info > p {
+  margin: 0 0 10px;
+
+  color: var(--lime);
+
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.service-project-info h3 {
+  margin: 0 0 15px;
+
+  color: #ffffff;
+
+  font: 500 28px "Space Grotesk";
+}
+
+.service-project-info > span {
+  max-width: 560px;
+
+  color: #aaaaa5;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Project tags */
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-top: 22px;
+}
+
+.project-tags span {
+  padding: 7px 11px;
+
+  border: 1px solid #363636;
+  border-radius: 100px;
+
+  color: #ffffff;
+
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   MODAL ANIMATIONS
+   ========================================= */
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   MOBILE MODAL
+   ========================================= */
+
+@media (max-width: 768px) {
+  .service-modal-overlay {
+    padding: 15px;
+  }
+
+  .service-modal {
+    max-height: 92vh;
+    padding: 35px 22px 30px;
+  }
+
+  .service-modal-close {
+    top: 15px;
+    right: 15px;
+
+    width: 38px;
+    height: 38px;
+
+    font-size: 21px;
+  }
+
+  .service-modal > h2 {
+    margin-bottom: 30px;
+
+    font-size: 42px;
+    letter-spacing: -2px;
+  }
+
+  .service-project {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-project-image {
+    min-height: 160px;
+  }
+
+  .service-project-info h3 {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-modal {
+    padding: 30px 18px 25px;
+  }
+
+  .service-modal > h2 {
+    font-size: 34px;
+  }
+
+  .service-project-image {
+    min-height: 130px;
+  }
+
+  .service-project-image strong {
+    font-size: 26px;
+  }
+}

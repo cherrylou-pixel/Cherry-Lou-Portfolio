@@ -151,20 +151,17 @@ a {
 ===================================================== */
 
 .availability {
-  position: absolute;
-
-  left: 0;
-  top: 50%;
-
-  transform: translateY(-50%);
+  position: static;
 
   display: flex;
   align-items: center;
   gap: 12px;
 
+  margin-bottom: 28px;
+
   color: #bdbdbd;
 
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
 
   letter-spacing: 0.18em;

@@ -316,28 +316,29 @@ a {
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO BOTTOM
-===================================================== */
+   ========================================================= */
 
 .hero-bottom {
   width: 100%;
 
-  padding-top: 24px;
+  padding-top: 34px;
+  padding-bottom: 30px;
 
-  border-top: 1px solid rgba(255, 255, 255, 0.45);
+  border-top: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   color: #ffffff;
 
   font-size: 12px;
   font-weight: 600;
-
   letter-spacing: 0.2em;
 }
-
 
 /* =====================================================
    GENERAL SECTIONS

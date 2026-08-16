@@ -1,134 +1,123 @@
 "use client";
 
-import { useEffect } from "react";
+import { useState } from "react";
 
-const skills = [
-  "Web Development",
-  "Graphic Design",
-  "Virtual Assistance",
-  "UI / UX",
-  "Content Creation",
-  "Research",
-  "Digital Organization",
-  "Administrative Support",
-];
-
-const tools = [
-  "Canva",
-  "Adobe Photoshop",
-  "Adobe Illustrator",
-  "Figma",
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "React",
-  "Next.js",
-  "Google Workspace",
-  "ChatGPT",
-];
-
-const projects = [
+const services = [
   {
     number: "01",
-    title: "Project One",
-    category: "Web Development",
+    title: "Web Development",
     description:
-      "Replace this with your actual project description.",
+      "Building clean, responsive, and modern websites with a focus on usability, structure, and visual experience.",
   },
   {
     number: "02",
-    title: "Project Two",
-    category: "Graphic Design",
+    title: "Graphic Design",
     description:
-      "Replace this with your actual project description.",
+      "Creating visual content, branding materials, social media graphics, and digital designs that communicate clearly.",
   },
   {
     number: "03",
-    title: "Project Three",
-    category: "Creative Work",
+    title: "Virtual Assistance",
     description:
-      "Replace this with your actual project description.",
+      "Supporting digital workflows through research, organization, administrative tasks, content support, and data management.",
   },
 ];
 
-const experiences = [
+const works = [
   {
-    year: "2023 — 2025",
-    role: "Web Developer",
-    company: "Gaming Company",
+    number: "01",
+    title: "Web Development",
+    type: "WEBSITE",
     description:
-      "Worked on website development and digital projects, helping create functional and user-friendly web experiences.",
+      "Responsive websites and digital experiences designed with clean layouts, modern interfaces, and smooth interactions.",
   },
   {
-    year: "2023 — 2025",
-    role: "Graphic Designer",
-    company: "Gaming Company",
+    number: "02",
+    title: "Graphic Design",
+    type: "VISUAL DESIGN",
     description:
-      "Created visual content, graphics, layouts, and digital materials while maintaining visual consistency and creative direction.",
+      "Creative visual projects including branding, social media graphics, promotional materials, and digital content.",
   },
   {
-    year: "Earlier Experience",
-    role: "Academic Commissioner",
-    company: "Academic / Freelance",
+    number: "03",
+    title: "Virtual Assistance",
+    type: "DIGITAL SUPPORT",
     description:
-      "Worked as a research writer, analyst, teacher, math tutor, and physics tutor while handling different academic and organizational responsibilities.",
+      "Organized research, prospecting, content support, administrative work, and digital workflow management.",
   },
 ];
 
 export default function Home() {
-  useEffect(() => {
-    const revealElements = document.querySelectorAll(".reveal");
+  const [activeService, setActiveService] = useState(null);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-      }
-    );
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
 
-    revealElements.forEach((element) => {
-      observer.observe(element);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   return (
-    <main>
-      {/* NAVIGATION */}
-      <header className="nav">
-        <a href="#home" className="logo">
-          CHERRY<span>LOU</span>
-        </a>
+    <main className="site">
 
-        <nav className="nav-links">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#work">Work</a>
-          <a href="#experience">Experience</a>
+      {/* =========================
+          FIXED NAVIGATION
+      ========================== */}
+      <header className="site-header">
+        <div
+          className="logo"
+          onClick={() => scrollToSection("home")}
+        >
+          CHERRY<span>LOU</span>
+        </div>
+
+        <nav className="main-nav">
+          <button onClick={() => scrollToSection("about")}>
+            About
+          </button>
+
+          <button onClick={() => scrollToSection("services")}>
+            Services
+          </button>
+
+          <button onClick={() => scrollToSection("work")}>
+            Work
+          </button>
+
+          <button onClick={() => scrollToSection("experience")}>
+            Experience
+          </button>
         </nav>
       </header>
 
-      {/* HERO */}
-      <section className="hero" id="home">
-        <div className="availability">
-          <span className="status-dot"></span>
+
+      {/* =========================
           AVAILABLE FOR OPPORTUNITIES
-        </div>
+      ========================== */}
+      <div className="availability">
+        <span className="availability-dot"></span>
+        <span>AVAILABLE FOR OPPORTUNITIES</span>
+      </div>
+
+
+      {/* =========================
+          HERO
+      ========================== */}
+      <section id="home" className="hero">
 
         <div className="hero-content">
-          <p className="hero-small">HELLO, I'M</p>
 
-          <h1>
-            Cherry
-            <br />
-            <em>Lou.</em>
+          <p className="hero-intro">
+            HELLO, I'M
+          </p>
+
+          <h1 className="hero-title">
+            <span>Cherry</span>
+            <span className="hero-name-lime">Lou.</span>
           </h1>
 
           <p className="hero-role">
@@ -138,350 +127,439 @@ export default function Home() {
           </p>
 
           <div className="hero-buttons">
-            <a href="#work" className="button button-primary">
-              Explore my work <span>↓</span>
+
+            <button
+              className="outline-button"
+              onClick={() => scrollToSection("work")}
+            >
+              <span>Explore my work</span>
+              <span className="button-arrow">↓</span>
+            </button>
+
+            <a
+              href="/resume.pdf"
+              className="outline-button"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>Download Resume</span>
+              <span className="button-arrow">↗</span>
             </a>
 
-            <a href="/resume.pdf" className="button button-outline">
-              Download Resume <span>↗</span>
-            </a>
+            <button
+              className="outline-button"
+              onClick={() => scrollToSection("contact")}
+            >
+              <span>Let's Talk</span>
+              <span className="button-arrow">↗</span>
+            </button>
 
-            <a href="#contact" className="button button-outline">
-              Let's Talk <span>↗</span>
-            </a>
           </div>
         </div>
 
         <div className="hero-bottom">
-          <span>BASED IN THE PHILIPPINES</span>
-          <span>SCROLL TO EXPLORE ↓</span>
+
+          <span>
+            BASED IN THE PHILIPPINES
+          </span>
+
+          <span>
+            SCROLL TO EXPLORE ↓
+          </span>
+
         </div>
+
       </section>
 
-      {/* ABOUT */}
-      <section className="section" id="about">
-        <div className="section-top">
+
+      {/* =========================
+          ABOUT
+      ========================== */}
+      <section id="about" className="content-section">
+
+        <div className="section-heading">
           <span className="section-number">01</span>
-          <span className="section-name">ABOUT ME</span>
+          <span className="section-label">ABOUT ME</span>
         </div>
 
         <div className="about-grid">
-          <div className="about-heading reveal">
-            <p className="mini-label">A LITTLE ABOUT ME</p>
+
+          <div className="about-heading">
+
+            <p className="small-label">
+              A LITTLE ABOUT ME
+            </p>
 
             <h2>
-              Creative mind,
+              Creative
               <br />
-              <em>organized execution.</em>
+              mind,
+              <br />
+              <span>organized</span>
+              <br />
+              <span>execution.</span>
             </h2>
+
           </div>
 
-          <div className="about-text reveal">
-            <p className="large-text">
-              I&apos;m Cherry Lou — a creative and detail-oriented
-              professional with an interest in web development, graphic
-              design, and virtual assistance.
+          <div className="about-text">
+
+            <p className="about-lead">
+              I'm Cherry Lou — a creative and detail-oriented
+              professional with an interest in web development,
+              graphic design, and virtual assistance.
             </p>
 
             <p>
-              I&apos;m a multidisciplinary creative with a background that
-              combines graphic design, multimedia arts, office
-              administration, and digital development. In 2025, I graduated
-              from two degree programs simultaneously: Bachelor of Multimedia
-              Arts – Graphic Design Specialization at CIIT College of Arts
-              and Technology and Bachelor of Science in Office Administration
-              at Pangasinan State University.
+              I'm a multidisciplinary creative with a background
+              that combines graphic design, multimedia arts,
+              office administration, and digital development.
+              In 2025, I graduated from two degree programs
+              simultaneously: Bachelor of Multimedia Arts –
+              Graphic Design Specialization at CIIT College of
+              Arts and Technology and Bachelor of Science in
+              Office Administration at Pangasinan State University.
             </p>
 
             <p>
-              My journey began as an academic commissioner, where I took on
-              a wide range of roles—from research writer and analyst to
-              teacher, math tutor, and physics tutor. This experience taught
-              me how to communicate ideas clearly, solve problems creatively,
+              My journey began as an academic commissioner,
+              where I took on a wide range of roles—from research
+              writer and analyst to teacher, math tutor, and
+              physics tutor. This experience taught me how to
+              communicate ideas clearly, solve problems creatively,
               and adapt to different challenges.
             </p>
 
             <p>
-              In 2023, I expanded my experience into the gaming industry,
-              working as a web developer for one gaming company and a graphic
-              designer for another until 2025. These experiences allowed me
-              to combine my technical skills with my passion for visual
+              In 2023, I expanded my experience into the gaming
+              industry, working as a web developer for one gaming
+              company and a graphic designer for another until
+              2025. These experiences allowed me to combine my
+              technical skills with my passion for visual
               storytelling and design.
             </p>
 
             <p>
-              I enjoy working where creativity and organization meet. Whether
-              it&apos;s creating visual content, building a website,
-              researching prospects, organizing information, or supporting a
-              digital workflow, I focus on producing work that is both
+              I enjoy working where creativity and organization
+              meet. Whether it's creating visual content,
+              building a website, researching prospects,
+              organizing information, or supporting a digital
+              workflow, I focus on producing work that is both
               visually engaging and useful.
             </p>
 
             <p>
-              I&apos;m always learning, experimenting, and looking for better
-              ways to turn ideas into meaningful digital experiences.
+              I'm always learning, experimenting, and looking for
+              better ways to turn ideas into meaningful digital
+              experiences.
             </p>
+
           </div>
+
         </div>
+
       </section>
 
-      {/* SERVICES */}
-      <section className="section" id="services">
-        <div className="section-top">
+
+      {/* =========================
+          SERVICES
+      ========================== */}
+      <section id="services" className="content-section">
+
+        <div className="section-heading">
           <span className="section-number">02</span>
-          <span className="section-name">WHAT I DO</span>
+          <span className="section-label">WHAT I DO</span>
         </div>
 
-        <div className="services-grid">
-          <div className="services-heading reveal">
-            <p className="mini-label">SERVICES</p>
+        <div className="services-list">
 
-            <h2>
-              What I
-              <br />
-              <em>do.</em>
-            </h2>
-          </div>
-
-          <div className="services-list">
-            {/* WEB DEVELOPMENT */}
-            <article className="service-card reveal">
-              <span className="service-number">01</span>
-
-              <div>
-                <p className="service-label">DIGITAL</p>
-
-                <h3>Web Development</h3>
-
-                <p>
-                  Building clean, responsive, and user-friendly digital
-                  experiences.
-                </p>
-              </div>
-
-              <span
-                className="service-arrow"
-                aria-label="View Web Development work"
-              >
-                ↗
-              </span>
-            </article>
-
-            {/* GRAPHIC DESIGN */}
-            <article className="service-card reveal">
-              <span className="service-number">02</span>
-
-              <div>
-                <p className="service-label">CREATIVE</p>
-
-                <h3>Graphic Design</h3>
-
-                <p>
-                  Creating aesthetic visuals, layouts, graphics, and content
-                  designed to communicate clearly.
-                </p>
-              </div>
-
-              <span
-                className="service-arrow"
-                aria-label="View Graphic Design work"
-              >
-                ↗
-              </span>
-            </article>
-
-            {/* VIRTUAL ASSISTANCE */}
-            <article className="service-card reveal">
-              <span className="service-number">03</span>
-
-              <div>
-                <p className="service-label">SUPPORT</p>
-
-                <h3>Virtual Assistance</h3>
-
-                <p>
-                  Helping organize tasks, information, research, and digital
-                  workflows efficiently.
-                </p>
-              </div>
-
-              <span
-                className="service-arrow"
-                aria-label="View Virtual Assistance work"
-              >
-                ↗
-              </span>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* SKILLS */}
-      <section className="section" id="skills">
-        <div className="section-top">
-          <span className="section-number">02A</span>
-          <span className="section-name">SKILLS &amp; EXPERTISE</span>
-        </div>
-
-        <div className="skills-grid">
-          <div className="skills-intro reveal">
-            <p className="mini-label">CAPABILITIES</p>
-
-            <h2>
-              Skills &amp;
-              <br />
-              <em>expertise.</em>
-            </h2>
-          </div>
-
-          <div className="skills-content reveal">
-            <div className="skill-list">
-              {skills.map((skill, index) => (
-                <span key={skill}>
-                  {String(index + 1).padStart(2, "0")} {skill}
-                </span>
-              ))}
-            </div>
-
-            <div className="tools-list">
-              <p className="mini-label">TOOLS</p>
-
-              <div className="tool-tags">
-                {tools.map((tool) => (
-                  <span key={tool}>{tool}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* WORK */}
-      <section className="section" id="work">
-        <div className="section-top">
-          <span className="section-number">03</span>
-          <span className="section-name">SELECTED WORK</span>
-        </div>
-
-        <div className="work-heading reveal">
-          <p className="mini-label">PORTFOLIO</p>
-
-          <h2>
-            Selected
-            <br />
-            <em>projects.</em>
-          </h2>
-        </div>
-
-        <div className="project-list">
-          {projects.map((project) => (
-            <article
-              className="project-card reveal"
-              key={project.number}
+          {services.map((service) => (
+            <div
+              className="service-item"
+              key={service.number}
+              onClick={() => setActiveService(service)}
             >
-              <div className="project-number">
-                {project.number}
+
+              <div className="service-left">
+
+                <span className="service-number">
+                  {service.number}
+                </span>
+
+                <h3>
+                  {service.title}
+                </h3>
+
               </div>
 
-              <div className="project-content">
-                <p className="project-category">
-                  {project.category}
+              <button
+                className="service-arrow"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveService(service);
+                }}
+                aria-label={`View ${service.title}`}
+              >
+                ↗
+              </button>
+
+            </div>
+          ))}
+
+        </div>
+
+      </section>
+
+
+      {/* =========================
+          WORK
+      ========================== */}
+      <section id="work" className="content-section">
+
+        <div className="section-heading">
+          <span className="section-number">03</span>
+          <span className="section-label">SELECTED WORK</span>
+        </div>
+
+        <div className="work-grid">
+
+          {works.map((work) => (
+            <article className="work-card" key={work.number}>
+
+              <div className="work-top">
+                <span className="work-number">
+                  {work.number}
+                </span>
+
+                <span className="work-type">
+                  {work.type}
+                </span>
+              </div>
+
+              <div className="work-preview">
+                <span>{work.title}</span>
+              </div>
+
+              <div className="work-info">
+
+                <h3>
+                  {work.title}
+                </h3>
+
+                <p>
+                  {work.description}
                 </p>
 
-                <h3>{project.title}</h3>
-
-                <p>{project.description}</p>
               </div>
 
-              <span className="project-arrow">↗</span>
             </article>
           ))}
+
         </div>
+
       </section>
 
-      {/* EXPERIENCE */}
-      <section className="section" id="experience">
-        <div className="section-top">
+
+      {/* =========================
+          EXPERIENCE
+      ========================== */}
+      <section id="experience" className="content-section">
+
+        <div className="section-heading">
           <span className="section-number">04</span>
-          <span className="section-name">EXPERIENCE</span>
+          <span className="section-label">EXPERIENCE</span>
         </div>
 
-        <div className="experience-grid">
-          <div className="experience-heading reveal">
-            <p className="mini-label">MY JOURNEY</p>
+        <div className="experience-list">
 
-            <h2>
-              Experience &amp;
-              <br />
-              <em>growth.</em>
-            </h2>
+          <div className="experience-item">
+
+            <div className="experience-year">
+              2023 — 2025
+            </div>
+
+            <div className="experience-content">
+
+              <h3>
+                Web Developer
+              </h3>
+
+              <p>
+                Gaming Industry
+              </p>
+
+              <span>
+                Developed and maintained websites while working
+                with layouts, interfaces, responsive structures,
+                and digital experiences.
+              </span>
+
+            </div>
+
           </div>
 
-          <div className="experience-list">
-            {experiences.map((experience) => (
-              <article
-                className="experience-card reveal"
-                key={experience.role}
-              >
-                <span className="experience-year">
-                  {experience.year}
-                </span>
 
-                <div>
-                  <h3>{experience.role}</h3>
+          <div className="experience-item">
 
-                  <p className="experience-company">
-                    {experience.company}
-                  </p>
+            <div className="experience-year">
+              2023 — 2025
+            </div>
 
-                  <p>{experience.description}</p>
-                </div>
-              </article>
-            ))}
+            <div className="experience-content">
+
+              <h3>
+                Graphic Designer
+              </h3>
+
+              <p>
+                Gaming Industry
+              </p>
+
+              <span>
+                Created visual materials, digital graphics,
+                promotional content, and design assets for
+                gaming-related projects.
+              </span>
+
+            </div>
+
           </div>
+
+
+          <div className="experience-item">
+
+            <div className="experience-year">
+              EARLIER
+            </div>
+
+            <div className="experience-content">
+
+              <h3>
+                Academic Commissioner
+              </h3>
+
+              <p>
+                Research • Teaching • Tutoring
+              </p>
+
+              <span>
+                Worked across research writing, analysis,
+                teaching, mathematics tutoring, and physics
+                tutoring.
+              </span>
+
+            </div>
+
+          </div>
+
         </div>
+
       </section>
 
-      {/* CONTACT */}
-      <section
-        className="contact-section section"
-        id="contact"
-      >
-        <p className="mini-label reveal">
-          <span className="contact-number">05</span>
-          <span className="contact-label">
-            {" "}
-            / LET&apos;S CONNECT
-          </span>
-        </p>
 
-        <div className="contact-content reveal">
-          <h2>
-            Let&apos;s make
-            <br />
-            something <em>meaningful.</em>
-          </h2>
+      {/* =========================
+          CONTACT
+      ========================== */}
+      <section id="contact" className="content-section contact-section">
 
-          <p>
-            Have a project, opportunity, or idea in mind? I&apos;d love
-            to hear about it.
+        <div className="section-heading">
+          <span className="section-number">05</span>
+          <span className="section-label">LET'S CONNECT</span>
+        </div>
+
+        <div className="contact-content">
+
+          <p className="small-label">
+            HAVE A PROJECT IN MIND?
           </p>
 
+          <h2>
+            Let's create
+            <br />
+            something
+            <br />
+            <span>meaningful.</span>
+          </h2>
+
           <a
-            href="mailto:your@email.com"
+            href="mailto:your-email@example.com"
             className="contact-email"
           >
-            your@email.com ↗
+            your-email@example.com ↗
           </a>
+
         </div>
+
       </section>
 
-      {/* FOOTER */}
+
+      {/* =========================
+          FOOTER
+      ========================== */}
       <footer className="footer">
-        <span>© 2026 CHERRY LOU</span>
-        <span>WEB · DESIGN · SUPPORT</span>
-        <a href="#home">BACK TO TOP ↑</a>
+
+        <span>
+          © {new Date().getFullYear()} CHERRY LOU
+        </span>
+
+        <span>
+          WEB DEVELOPER / GRAPHIC DESIGNER
+        </span>
+
       </footer>
+
+
+      {/* =========================
+          SERVICE POPUP
+      ========================== */}
+      {activeService && (
+        <div
+          className="service-modal"
+          onClick={() => setActiveService(null)}
+        >
+
+          <div
+            className="service-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+
+            <button
+              className="modal-close"
+              onClick={() => setActiveService(null)}
+            >
+              ×
+            </button>
+
+            <span className="modal-number">
+              {activeService.number}
+            </span>
+
+            <h2>
+              {activeService.title}
+            </h2>
+
+            <p>
+              {activeService.description}
+            </p>
+
+            <div className="modal-placeholder">
+              <span>
+                YOUR WORK WILL APPEAR HERE
+              </span>
+            </div>
+
+            <button
+              className="modal-back"
+              onClick={() => setActiveService(null)}
+            >
+              ← Back
+            </button>
+
+          </div>
+
+        </div>
+      )}
+
     </main>
   );
 }

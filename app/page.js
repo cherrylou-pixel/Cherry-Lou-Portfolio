@@ -107,9 +107,12 @@ export default function Home() {
       {/* =========================
           HERO
       ========================== */}
-      <section id="home" className="hero">
+     <div className="hero-content">
 
-        <div className="hero-content">
+  <div className="availability">
+    <span className="availability-dot"></span>
+    <span>Available for opportunities</span>
+  </div>
 
           <p className="hero-intro">
             HELLO, I'M

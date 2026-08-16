@@ -107,21 +107,21 @@ export default function Home() {
       {/* =========================
           HERO
       ========================== */}
-     <div className="hero-content">
+    <div className="hero-content">
 
   <div className="availability">
     <span className="availability-dot"></span>
     <span>Available for opportunities</span>
   </div>
 
-          <p className="hero-intro">
-            HELLO, I'M
-          </p>
+  <div className="hero-greeting">
+    HELLO, I'M
+  </div>
 
-          <h1 className="hero-title">
-            <span>Cherry</span>
-            <span className="hero-name-lime">Lou.</span>
-          </h1>
+  <h1>
+    <span>Cherry</span>
+    <span>Lou.</span>
+  </h1>
 
           <p className="hero-role">
             WEB DEVELOPER / GRAPHIC DESIGNER

@@ -1,6 +1,53 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+const serviceProjects = {
+  "Web Development": [
+    {
+      title: "Website Project One",
+      description:
+        "Replace this with a description of your web development project.",
+      tags: ["Web Development", "UI/UX"],
+    },
+    {
+      title: "Website Project Two",
+      description:
+        "Replace this with another web development project and its details.",
+      tags: ["Website", "Development"],
+    },
+  ],
+
+  "Graphic Design": [
+    {
+      title: "Graphic Design Project One",
+      description:
+        "Replace this with a description of your graphic design project.",
+      tags: ["Graphic Design", "Visual Design"],
+    },
+    {
+      title: "Graphic Design Project Two",
+      description:
+        "Add another graphic design project here.",
+      tags: ["Branding", "Creative"],
+    },
+  ],
+
+  "Virtual Assistance": [
+    {
+      title: "Virtual Assistance Project One",
+      description:
+        "Replace this with a description of your virtual assistance work.",
+      tags: ["Research", "Organization"],
+    },
+    {
+      title: "Virtual Assistance Project Two",
+      description:
+        "Add another virtual assistance project here.",
+      tags: ["Administration", "Support"],
+    },
+  ],
+};
 
 const skills = [
   "Web Development",
@@ -72,6 +119,8 @@ const experience = [
 ];
 
 export default function Home() {
+  const [activeService, setActiveService] = useState(null);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -256,44 +305,86 @@ export default function Home() {
         </div>
 
         <div className="service-list">
-          <article className="service-card reveal">
-            <span className="service-number">01</span>
-            <div>
-              <p className="service-label">DIGITAL</p>
-              <h3>Web Development</h3>
-              <p>
-                Building clean, responsive, and user-friendly digital
-                experiences.
-              </p>
-            </div>
-            <span className="service-arrow">↗</span>
-          </article>
+         <article
+  className="service-card reveal"
+  onClick={() => setActiveService("Web Development")}
+>
+  <span className="service-number">01</span>
 
-          <article className="service-card reveal">
-            <span className="service-number">02</span>
-            <div>
-              <p className="service-label">CREATIVE</p>
-              <h3>Graphic Design</h3>
-              <p>
-                Creating aesthetic visuals, layouts, graphics, and content
-                designed to communicate clearly.
-              </p>
-            </div>
-            <span className="service-arrow">↗</span>
-          </article>
+  <div>
+    <p className="service-label">DIGITAL</p>
+    <h3>Web Development</h3>
+    <p>
+      Building clean, responsive, and user-friendly digital
+      experiences.
+    </p>
+  </div>
 
-          <article className="service-card reveal">
-            <span className="service-number">03</span>
-            <div>
-              <p className="service-label">SUPPORT</p>
-              <h3>Virtual Assistance</h3>
-              <p>
-                Helping organize tasks, information, research, and digital
-                workflows efficiently.
-              </p>
-            </div>
-            <span className="service-arrow">↗</span>
-          </article>
+  <button
+    className="service-arrow"
+    aria-label="View Web Development work"
+    onClick={(e) => {
+      e.stopPropagation();
+      setActiveService("Web Development");
+    }}
+  >
+    ↗
+  </button>
+</article>
+
+         <article
+  className="service-card reveal"
+  onClick={() => setActiveService("Graphic Design")}
+>
+  <span className="service-number">02</span>
+
+  <div>
+    <p className="service-label">CREATIVE</p>
+    <h3>Graphic Design</h3>
+    <p>
+      Creating aesthetic visuals, layouts, graphics, and content
+      designed to communicate clearly.
+    </p>
+  </div>
+
+  <button
+    className="service-arrow"
+    aria-label="View Graphic Design work"
+    onClick={(e) => {
+      e.stopPropagation();
+      setActiveService("Graphic Design");
+    }}
+  >
+    ↗
+  </button>
+</article>
+
+         <article
+  className="service-card reveal"
+  onClick={() => setActiveService("Virtual Assistance")}
+>
+  <span className="service-number">03</span>
+
+  <div>
+    <p className="service-label">SUPPORT</p>
+    <h3>Virtual Assistance</h3>
+    <p>
+      Helping organize tasks, information, research, and digital
+      workflows efficiently.
+    </p>
+  </div>
+
+  <button
+    className="service-arrow"
+    aria-label="View Virtual Assistance work"
+    onClick={(e) => {
+      e.stopPropagation();
+      setActiveService("Virtual Assistance");
+    }}
+  >
+    ↗
+  </button>
+</article>
 
          
         </div>
@@ -482,10 +573,17 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="footer">
-        <span>© 2026 CHERRY LOU</span>
-        <span>WEB · DESIGN · DIGITAL</span>
-        <a href="#home">BACK TO TOP ↑</a>
-      </footer>
-    </main>
-  );
-}
+  <span>© 2026 CHERRY LOU</span>
+  <span>WEB · DESIGN · DIGITAL</span>
+  <a href="#home">BACK TO TOP ↑</a>
+</footer>
+
+{activeService && (
+  <div
+    className="service-modal-overlay"
+    onClick={() => setActiveService(null)}
+  >
+    ...
+  </div>
+)}
+</main>

@@ -96,39 +96,37 @@ export default function Home() {
 
 
       {/* =========================
-          AVAILABLE FOR OPPORTUNITIES
-      ========================== */}
-      <div className="availability">
-        <span className="availability-dot"></span>
-        <span>AVAILABLE FOR OPPORTUNITIES</span>
-      </div>
-
-
-      {/* =========================
           HERO
       ========================== */}
-    <div className="hero-content">
+      <section className="hero" id="home">
 
-  <div className="availability">
-    <span className="availability-dot"></span>
-    <span>Available for opportunities</span>
-  </div>
+        <div className="hero-content">
 
-  <div className="hero-greeting">
-    HELLO, I'M
-  </div>
+          {/* AVAILABLE FOR OPPORTUNITIES */}
+          <div className="hero-availability">
+            <span className="availability-dot"></span>
+            <span>AVAILABLE FOR OPPORTUNITIES</span>
+          </div>
 
-  <h1>
-    <span>Cherry</span>
-    <span>Lou.</span>
-  </h1>
+          {/* HELLO */}
+          <div className="hero-greeting">
+            HELLO, I'M
+          </div>
 
+          {/* NAME */}
+          <h1>
+            <span>Cherry</span>
+            <span>Lou.</span>
+          </h1>
+
+          {/* ROLE */}
           <p className="hero-role">
             WEB DEVELOPER / GRAPHIC DESIGNER
             <br />
             GENERAL VIRTUAL ASSISTANT
           </p>
 
+          {/* BUTTONS */}
           <div className="hero-buttons">
 
             <button
@@ -160,6 +158,8 @@ export default function Home() {
           </div>
         </div>
 
+
+        {/* HERO BOTTOM */}
         <div className="hero-bottom">
 
           <span>
@@ -204,6 +204,7 @@ export default function Home() {
             </h2>
 
           </div>
+
 
           <div className="about-text">
 
@@ -277,6 +278,7 @@ export default function Home() {
         <div className="services-list">
 
           {services.map((service) => (
+
             <div
               className="service-item"
               key={service.number}
@@ -295,6 +297,7 @@ export default function Home() {
 
               </div>
 
+
               <button
                 className="service-arrow"
                 onClick={(e) => {
@@ -307,6 +310,7 @@ export default function Home() {
               </button>
 
             </div>
+
           ))}
 
         </div>
@@ -324,12 +328,18 @@ export default function Home() {
           <span className="section-label">SELECTED WORK</span>
         </div>
 
+
         <div className="work-grid">
 
           {works.map((work) => (
-            <article className="work-card" key={work.number}>
+
+            <article
+              className="work-card"
+              key={work.number}
+            >
 
               <div className="work-top">
+
                 <span className="work-number">
                   {work.number}
                 </span>
@@ -337,11 +347,14 @@ export default function Home() {
                 <span className="work-type">
                   {work.type}
                 </span>
+
               </div>
+
 
               <div className="work-preview">
                 <span>{work.title}</span>
               </div>
+
 
               <div className="work-info">
 
@@ -356,6 +369,7 @@ export default function Home() {
               </div>
 
             </article>
+
           ))}
 
         </div>
@@ -366,12 +380,16 @@ export default function Home() {
       {/* =========================
           EXPERIENCE
       ========================== */}
-      <section id="experience" className="content-section">
+      <section
+        id="experience"
+        className="content-section"
+      >
 
         <div className="section-heading">
           <span className="section-number">04</span>
           <span className="section-label">EXPERIENCE</span>
         </div>
+
 
         <div className="experience-list">
 
@@ -463,12 +481,16 @@ export default function Home() {
       {/* =========================
           CONTACT
       ========================== */}
-      <section id="contact" className="content-section contact-section">
+      <section
+        id="contact"
+        className="content-section contact-section"
+      >
 
         <div className="section-heading">
           <span className="section-number">05</span>
           <span className="section-label">LET'S CONNECT</span>
         </div>
+
 
         <div className="contact-content">
 
@@ -516,6 +538,7 @@ export default function Home() {
           SERVICE POPUP
       ========================== */}
       {activeService && (
+
         <div
           className="service-modal"
           onClick={() => setActiveService(null)}
@@ -529,27 +552,35 @@ export default function Home() {
             <button
               className="modal-close"
               onClick={() => setActiveService(null)}
+              aria-label="Close"
             >
               ×
             </button>
+
 
             <span className="modal-number">
               {activeService.number}
             </span>
 
+
             <h2>
               {activeService.title}
             </h2>
+
 
             <p>
               {activeService.description}
             </p>
 
+
             <div className="modal-placeholder">
+
               <span>
                 YOUR WORK WILL APPEAR HERE
               </span>
+
             </div>
+
 
             <button
               className="modal-back"
@@ -561,6 +592,7 @@ export default function Home() {
           </div>
 
         </div>
+
       )}
 
     </main>
